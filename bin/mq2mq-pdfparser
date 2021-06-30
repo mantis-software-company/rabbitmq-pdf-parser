@@ -3,7 +3,7 @@
 import os
 import logging
 import asyncio
-from mq2mq_pdfparser import consume
+from mq2mq_pdfparser import run
 
 logger = logging.getLogger("mq2mq-pdfparser")
 logger.setLevel(os.environ.get('LOG_LEVEL', "DEBUG"))
@@ -15,7 +15,7 @@ handler.setFormatter(
 )
 logger.addHandler(handler)
 loop = asyncio.get_event_loop()
-loop.run_until_complete(consume(loop=loop, logger=logger))
+loop.run_until_complete(run(loop=loop, logger=logger))
 loop.close()
 
 

@@ -39,7 +39,8 @@ if __name__ == '__main__':
 	  "mq_user": os.environ.get('MQ_USER'),
 	  "mq_pass": os.environ.get('MQ_PASS'),
 	  "mq_source_queue": os.environ.get('MQ_SOURCE_QUEUE'),
-          "mq_target_queue": os.environ.get('MQ_TARGET_QUEUE')
+      "mq_target_exchange": os.environ.get('MQ_TARGET_EXCHANGE'),
+      "mq_target_routing_key": os.environ.get('MQ_TARGET_ROUTING_KEY')
     }
   
     loop = asyncio.get_event_loop()
@@ -54,6 +55,9 @@ if __name__ == '__main__':
 loop.close()
 ```
 
+This library uses [PyPDF2](https://pythonhosted.org/PyPDF2/),  [aio_pika](https://aio-pika.readthedocs.io/en/latest/) and [aiohttp](https://docs.aiohttp.org/en/stable/) packages.
+
+
 ### Standalone
 You can also call this library as standalone PDF parser job.  Just set required environment variables and run `mq2mq-pdfparser`. This usecase perfectly fits when you need run it on cronjobs or kubernetes jobs. 
 
@@ -64,14 +68,12 @@ You can also call this library as standalone PDF parser job.  Just set required 
 - MQ_USER
 - MQ_PASS
 - MQ_SOURCE_QUEUE (Queue that job consume urls)
-- MQ_TARGET_QUEUE (Queue that job publish texts)
+- MQ_TARGET_EXCHANGE (Exchange that job publish texts)
+- MQ_TARGET_ROUTING_KEY (Routing key that job publish texts)
 - MQ_QUEUE_DURABLE (optional, default value: True)
-- SQL_TEMPLATE (DB Insert query template. Ex: `insert into logs (body) values (%s);`)
--  CONSUMER_POOL_SIZE (optional, default value: 10)
--  LOG_LEVEL (Logging level. See: [Python logging module docs](https://docs.python.org/3/library/logging.html#logging-levels))
+- CONSUMER_POOL_SIZE (optional, default value: 10)
+- LOG_LEVEL (Logging level. See: [Python logging module docs](https://docs.python.org/3/library/logging.html#logging-levels))
 
 **Example Kubernetes job:** 
- ```yaml
-# TO DO: Add Kubernetes job here.
- ```
+ You can see it to [kube.yaml](kube.yaml)
 

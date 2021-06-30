@@ -2,9 +2,9 @@ import setuptools
 
 setuptools.setup(
     name="mq2mq-pdfparser",
-    version="1.0.0",
+    version="0.0.0",
     author="Furkan Kalkan",
-    author_email="info@mantis.com.tr",
+    author_email="furkankalkan@mantis.com.tr",
     description="Asynchronous job library that consume RabbitMQ for PDF urls and publish pdf text back.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -14,7 +14,7 @@ setuptools.setup(
         "Topic :: Internet",
         "Topic :: Software Development",
         "Topic :: Software Development :: Libraries",
-	"Topic :: Software Development :: Testing",
+	    "Topic :: Software Development :: Testing",
         "Intended Audience :: Developers",
         "Operating System :: MacOS",
         "Operating System :: POSIX",
@@ -25,7 +25,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8"
     ],
-    install_requires=['requests','PyPDF2', 'aio_pika'],
+    install_requires=['aiohttp', 'aio_pika', 'PyPDF2'],
     python_requires=">3.6.*, <4",
     packages=['rabbitmq2psql_as_json'],
     scripts=['bin/mq2mq-pdfparser']
