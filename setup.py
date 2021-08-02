@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="mq2mq-pdfparser",
+    name="rabbitmq-pdfparser",
     version="0.0.0",
     author="Furkan Kalkan",
     author_email="furkankalkan@mantis.com.tr",
@@ -27,6 +27,6 @@ setuptools.setup(
     ],
     install_requires=['aiohttp', 'aio_pika', 'PyPDF2'],
     python_requires=">3.6.*, <4",
-    packages=['mq2mq_pdfparser'],
+    packages=['rabbitmq_pdfparser'],
     scripts=['bin/mq2mq-pdfparser']
 )

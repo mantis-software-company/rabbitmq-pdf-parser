@@ -3,7 +3,7 @@
 import os
 import logging
 import asyncio
-from mq2mq_pdfparser import run
+from rabbitmq_pdfparser import run
 
 logger = logging.getLogger("mq2mq-pdfparser")
 logger.setLevel(os.environ.get('LOG_LEVEL', "DEBUG"))
