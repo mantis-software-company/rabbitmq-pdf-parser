@@ -1,12 +1,12 @@
 
-# mq2mq-pdfparser
+# rabbitmq_pdfparser
 
-mq2mq-pdfparser is asynchronous job library that consume RabbitMQ for PDF urls and publish pdf text back to RabbitMQ. It stops when queue is empty.
+rabbitmq_pdfparser is asynchronous job library that consume RabbitMQ for PDF urls and publish pdf text back to RabbitMQ. It stops when queue is empty.
 
 ## Installation
 
 You can install this library easily with pip.
-`pip install mq2mq-pdfparser` 
+`pip install rabbitmq-pdfparser` 
 
 ## Usage
 
@@ -19,10 +19,10 @@ Data must send to source queue should this format:
 ```py
 import os
 import asyncio
-from mq2mq_pdfparser import consume
+from rabbitmq_pdfparser import consume
 
 if __name__ == '__main__':
-    logger = logging.getLogger("mq2mq_pdfparser")
+    logger = logging.getLogger("rabbitmq_pdfparser")
     logger.setLevel(os.environ.get('LOG_LEVEL', "DEBUG"))
     handler = logging.StreamHandler()
     handler.setFormatter(
@@ -34,11 +34,11 @@ if __name__ == '__main__':
 
     config = {
       "mq_host": os.environ.get('MQ_HOST'),
-	  "mq_port": int(os.environ.get('MQ_PORT')), 
-	  "mq_vhost": os.environ.get('MQ_VHOST'),
-	  "mq_user": os.environ.get('MQ_USER'),
-	  "mq_pass": os.environ.get('MQ_PASS'),
-	  "mq_source_queue": os.environ.get('MQ_SOURCE_QUEUE'),
+      "mq_port": int(os.environ.get('MQ_PORT')), 
+      "mq_vhost": os.environ.get('MQ_VHOST'),
+      "mq_user": os.environ.get('MQ_USER'),
+      "mq_pass": os.environ.get('MQ_PASS'),
+      "mq_source_queue": os.environ.get('MQ_SOURCE_QUEUE'),
       "mq_target_exchange": os.environ.get('MQ_TARGET_EXCHANGE'),
       "mq_target_routing_key": os.environ.get('MQ_TARGET_ROUTING_KEY')
     }
@@ -59,7 +59,7 @@ This library uses [PyPDF2](https://pythonhosted.org/PyPDF2/),  [aio_pika](https:
 
 
 ### Standalone
-You can also call this library as standalone PDF parser job.  Just set required environment variables and run `mq2mq-pdfparser`. This usecase perfectly fits when you need run it on cronjobs or kubernetes jobs. 
+You can also call this library as standalone PDF parser job.  Just set required environment variables and run `rabbitmq_pdfparser`. This usecase perfectly fits when you need run it on cronjobs or kubernetes jobs. 
 
 **Required environment variables:**
 - MQ_HOST
