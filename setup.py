@@ -28,5 +28,5 @@ setuptools.setup(
     install_requires=['aiohttp', 'aio_pika', 'PyPDF2'],
     python_requires=">3.6.*, <4",
     packages=['rabbitmq_pdfparser'],
-    scripts=['bin/mq2mq-pdfparser']
+    scripts=['bin/rabbitmq-pdfparser']
 )
