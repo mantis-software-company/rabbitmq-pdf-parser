@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="rabbitmq-pdfparser",
-    version="1.0.0",
+    version="1.0.1",
     author="Furkan Kalkan",
     author_email="furkankalkan@mantis.com.tr",
     description="Asynchronous job library that consume RabbitMQ for PDF urls and publish pdf text back.",
@@ -14,7 +14,7 @@ setuptools.setup(
         "Topic :: Internet",
         "Topic :: Software Development",
         "Topic :: Software Development :: Libraries",
-	    "Topic :: Software Development :: Testing",
+        "Topic :: Software Development :: Testing",
         "Intended Audience :: Developers",
         "Operating System :: MacOS",
         "Operating System :: POSIX",
