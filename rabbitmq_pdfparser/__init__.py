@@ -66,7 +66,7 @@ async def run(loop, logger=None, config=None, consumer_pool_size=10):
                             logger.error("PDF Parsing Error: %s" % (e,))
                         raise e
                     else:
-                        m.ack()
+                        await m.ack()
                 except aio_pika.exceptions.QueueEmpty:
                     if logger:
                         logger.info("Consumer %s: Queue empty. Stopping." % consumer_id)
